@@ -1,10 +1,11 @@
 var crypto = require('crypto'),
     User = require('../models/user.js'),
-    Post = require('../models/post.js');;
+    Post = require('../models/post.js');
 
 module.exports = function(app){
     app.get('/', function(req,res){
         Post.get(null, function(err, posts){
+            console.log(err);
             if(err){
                 posts = [];
             }
@@ -18,34 +19,20 @@ module.exports = function(app){
         });
     });
     app.get('/detail/:id', function(req, res) {
-        var data = {_id: ""};
-        console.log(req.params.id);
+        var data = {_id: req.params.id};
         Post.get(data, function(err, posts){
             if(err){
                 console.log(123);
                 posts = [];
             }
-            console.log(posts);
-            res.render('index',{
+            res.render('detail',{
                 title: '主页',
                 user: req.session.user,
-                posts: posts,
+                post: posts[0],
                 success: req.flash('success').toString(),
                 error: req.flash('error').toString()
             });
         });
-//        Post.get(data, function(err, posts){
-//            if(err){
-//                posts = [];
-//            }
-//            res.render('detail',{
-//                title: '主页',
-//                user: req.session.user,
-//                posts: posts,
-//                success: req.flash('success').toString(),
-//                error: req.flash('error').toString()
-//            });
-//        });
     });
 
     app.get('/reg', checkNotLogin);
@@ -161,7 +148,6 @@ module.exports = function(app){
         req.flash('success','登出成功!');
         res.redirect('/');
     });
-
 
 };
 

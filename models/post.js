@@ -1,4 +1,5 @@
 var mongodb = require('./db');
+var dbjs = require('mongojs');
 
 function Post(name, title, post) {
     this.name = name;
@@ -47,7 +48,7 @@ Post.prototype.save = function(callback) {//存储一篇文章及其相关信息
     });
 };
 
-Post.get = function(name, callback) {//读取文章及其相关信息
+Post.get = function(obj, callback) {//读取文章及其相关信息
     //打开数据库
     mongodb.open(function (err, db) {
         if (err) {
@@ -60,9 +61,14 @@ Post.get = function(name, callback) {//读取文章及其相关信息
                 return callback(err);
             }
             var query = {};
-            if (name) {
-                query.name = name;
+            if (obj) {
+                console.log('obj is exist')
+                query = obj;
+                if(query._id) {
+                    query._id = dbjs.ObjectId(query._id);
+                }
             }
+
             //根据 query 对象查询文章
             collection.find(query).sort({
                 time: -1
