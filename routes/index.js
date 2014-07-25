@@ -9,7 +9,7 @@ module.exports = function(app){
             if(err){
                 posts = [];
             }
-            res.render('index',{
+            res.render('test',{
                 title: '主页',
                 user: req.session.user,
                 posts: posts,
@@ -26,7 +26,7 @@ module.exports = function(app){
                 posts = [];
             }
             res.render('detail',{
-                title: '主页',
+                title: '标题：'+ posts[0].title,
                 user: req.session.user,
                 post: posts[0],
                 success: req.flash('success').toString(),

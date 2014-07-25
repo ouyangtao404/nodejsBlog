@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html class="archives">
+<head>
+    <meta charset="utf-8">
+
+    <title>Blog</title>
+    <link rel="icon" href="images/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" mce_href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="/stylesheets/test.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <meta property="og:site_name" content="Lucifr"/>
+
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+</head>
+
+<body>
+<div class="inner">
+    <header id="header"><div class="hgroup">
+            <h1><a href="/">ouyangtao</a></h1>
+            <h2><a href="/">修行正当此时</a></h2>
+        </div>
+        <ul class="social alignright">
+
+            <li>
+                <a class="mail" href="mailto:i@lucifr.com" title="Contact Me"><span>Contact</span></a>
+            </li>
+
+
+            <li>
+                <a class="pinboard" href="http://pinboard.in/u:lucifr" title="My Pinboard Bookmarks"><span>Pinboard</span></a>
+            </li>
+
+
+            <li>
+                <a class="twitter" href="http://twitter.com/lucifr" title="Follow Me"><span>Twitter</span></a>
+            </li>
+
+            <li>
+                <a  class="rss" href="http://feed.lucifr.com" title="Subscribe via RSS"><span>RSS</span></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div></header>
+    <nav id="main-nav" role="navigation"><form action="http://google.com/search" method="get" accept-charset="utf-8">
+            <fieldset role="search">
+                <input class="search" type="text" name="q" results="0" placeholder="Search">
+                <input type="hidden" name="q" value="site:lucifr.com">
+            </fieldset>
+        </form>
+        <ul role="main-navigation">
+
+            <li><a href="/">Home</a></li>
+
+            <li><a href="/archives">Archives</a></li>
+
+            <li><a href="/project">Projects</a></li>
+
+            <li><a href="/about">About</a></li>
+
+        </ul>
+        <div class="clearfix"></div></nav>
+</div>
+
+<div id="content" class="inner">
+    <div id="main-col">
+        <div id="wrapper">
+
+            <% posts.forEach(function(post, index){ %>
+            <article class="post">
+                <div class="post-content">
+                    <header>
+                        <div class="icon"></div>
+                        <time><a href="#"><%= post.time.minute %></a></time>
+                        <h1 class="title"><a href="/detail/<%= post._id %>"><%= post.name %>:<%= post.title %></a></h1>
+                    </header>
+                    <div class="entry">
+                        <%- post.post %>
+                    </div>
+                    <footer>
+                    </footer>
+                </div>
+            </article>
+            <% }) %>
+
+            <nav id="pagination">
+                <a href="/page/2/" class="alignright next">Older</a>
+            </nav>
+
+        </div>
+    </div>
+</div>
+<div class="bcontainer clearfix">
+    <aside id="sidebar">
+
+        <div class="widget twitter">
+            <h3 class="title">Tweets</h3>
+            <ul id="tweets"></ul>
+        </div>
+
+        <div class="widget blogroll">
+            <h3 class="title">My Friends</h3>
+            <ul class="blogroll">
+                <li><a href="http://hzlzh.io/" title="@hzlzh's blog">自力博客</a></li>
+                <li><a href="http://yangze.me/" title="@mac9527's blog">小泽含笑饮砒霜</a></li>
+                <li><a href="http://ericzerocustom.wordpress.com/">Eric</a></li>
+                <li><a href="http://herockpost.com" title="Blog让独处更有趣">Herock post</a></li>
+                <li><a href="http://www.freefcw.com/" title="巫山霏雨的blog">心的自由</a></li>
+                <li><a href="http://ilaotian.com/" title="探花的blog">探花@Tinn Walk</a></li>
+                <li><a href="http://www.appskoo.com/" title="AppsKoo">AppsKoo</a></li>
+            </ul>
+        </div>
+
+        <div class="widget flickr">
+            <h3 class="title">Flickr</h3>
+            <style type="text/css">
+
+            </style>
+            <ul id="flickrList"></ul>
+
+        </div>
+
+    </aside>
+</div>
+<footer id="footer" class="inner clearfix"><div>
+        &copy; 2014 ouyangtao
+        | just for niubility
+    </div>
+</footer>
+
+</body>
+</html>

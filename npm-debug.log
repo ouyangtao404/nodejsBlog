@@ -21,7 +21,7 @@
 10 error There is likely additional logging output above.
 11 error System Windows_NT 6.1.7601
 12 error command "d:\\Program Files (x86)\\nodejs\\node.exe" "d:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-13 error cwd d:\work\nodejsBlog
+13 error cwd D:\work\nodejsBlog
 14 error node -v v0.10.26
 15 error npm -v 1.4.3
 16 error code ELIFECYCLE
